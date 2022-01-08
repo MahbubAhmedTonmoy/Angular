@@ -7,7 +7,8 @@ import { ShoppingListService } from "./shoppingList.service";
 
 @Injectable()
 export class RecipeService{
-    
+    recipesChanged = new Subject<Recipe[]>();
+
     //selectedRecipe = new EventEmitter<Recipe>();
     //selectedRecipe = new Subject<Recipe>();
     private recipes: Recipe[] = [
@@ -36,4 +37,18 @@ export class RecipeService{
     getRecipeById(id: number){
         return this.recipes[id];
     }
+    addRecipe(recipe: Recipe) {
+        this.recipes.push(recipe);
+        this.recipesChanged.next(this.recipes.slice());
+      }
+    
+      updateRecipe(index: number, newRecipe: Recipe) {
+        this.recipes[index] = newRecipe;
+        this.recipesChanged.next(this.recipes.slice());
+      }
+    
+      deleteRecipe(index: number) {
+        this.recipes.splice(index, 1);
+        this.recipesChanged.next(this.recipes.slice());
+      }
 }
