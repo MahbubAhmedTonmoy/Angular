@@ -1,7 +1,9 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { map, tap } from "rxjs/operators";
+import { exhaustMap } from "rxjs-compat/operator/exhaustMap";
+import { map, tap,take } from "rxjs/operators";
 import { Recipe } from "../recipes/recipe.model";
+import { AuthService } from "./auth.service";
 import { RecipeService } from "./recipe.service";
 
 @Injectable({
@@ -9,7 +11,9 @@ import { RecipeService } from "./recipe.service";
 })
 export class DataStorageService{
 
-    constructor(private http: HttpClient, private recipeService : RecipeService){
+    constructor(private http: HttpClient,
+         private recipeService : RecipeService,
+         private auth : AuthService){
 
     }
 
