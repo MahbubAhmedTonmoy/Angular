@@ -5,45 +5,34 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
-import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
-import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { RecipeService } from './services/recipe.service';
 import { ShoppingListService } from './services/shoppingList.service';
 import { AppRoutingModule } from './app-routing.module';
-import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
-import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
-import { RecipesResolverService } from './services/recipes-resolver.service';
 import { AuthComponent } from './Auth/auth.component';
 import { AuthService } from './services/auth.service';
 import { AuthInterceptorService } from './Auth/auth.interceptor.service';
+import { RecipesModule } from './recipes/recipe.module';
+import { ShoppingListModule } from './shopping-list/shoppinglist.module';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    RecipesComponent,
-    RecipeListComponent,
-    RecipeDetailComponent,
-    RecipeItemComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
-    DropdownDirective,
-    RecipeStartComponent,
-    RecipeEditComponent,
+    //DropdownDirective,
     AuthComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    AppRoutingModule
+    // BrowserModule,
+    // FormsModule,
+    // ReactiveFormsModule,
+    // HttpClientModule,
+    // AppRoutingModule,
+    RecipesModule,
+    ShoppingListModule,
+    SharedModule
   ],
   providers: [
     RecipeService,
