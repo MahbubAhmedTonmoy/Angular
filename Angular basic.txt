@@ -1,0 +1,80 @@
+ how to load and start:
+ ----------------------
+ main.ts () -> platformBrowserDynamic().bootstrapModule(AppModule.ts())
+		index.html(single page) <app-root></app-root>
+			->app.component.ts {selector: app-root}
+
+
+component: basic building block, control html 
+
+module: some component bundel, building a package
+ @NgModule({
+  declaration;[component],
+  imports:[module],
+  providers:[services],
+  bootstrap :[which component load when start appliaction] / or which component recognize index.html file
+ })
+ 
+----------Directives-------------- 
+ --Attribute Directives
+ --Structural Directives [*ngFor, *ngIf, ngClass, ngStyle, *ngSwitch] [start with *]
+ 
+
+@Directive({
+ selector: '[appBasicHighlight]'
+}) 
+export class BasicHighlightDirective implements OnInit {
+	constructor(private elementRef : ElementRef){
+	}
+	or
+	constructor(private elementRef : ElementRef, private render: Render2){
+	}
+	--
+	ngoninit(){
+		this.elementRef.nativeElement.style.backgroundcolor = 'green'
+	}
+	or
+	ngoninit(){
+		this.render.setstyle(this.elementRef.nativeElement, 'backgroundcolor', 'green',false, false)
+	}
+	
+	@HostListener
+	@HostBinding
+}
+ 
+------------------------
+view encapsulation :
+ @component({
+	encapsulation: ViewEancapsulation.Native
+ })
+------------------------
+data binding:
+    ts -> html:
+	string Interpolation: {{data}}
+	property Binding: ([property]="data")
+	html -> ts
+	Event Binding : ((event)= "expression($event)")
+	
+	2 way binding: ([(ngModel)] = "data")
+	
+	pass value by using local reference : <input type="" class="" #name>  function(name)
+	@ViewChild('') name : ElementRef  // this.name.nativeElement.value  // <#name>
+	
+ pass data to child component: @Input('') object :{--:string,--:string} 
+ pass data to parent component: @Output('') a = new EventEmitter<{}>()
+ 
+ <ng-content></ng- content>
+-------------------------
+ lazy loading ---> module devide, routhing ['',loadchildren:'module path']
+ preloadingStrategy :
+ 
+ ----------------------observable-------------------------------------------------
+ Observable: Event, Http Request, Triggered in code
+ --in middle operators (map , filter)
+ observer : Handle Data, Handle Error, Handle Completion
+ 
+ Subject : instate of EventEmitter (emit -> next) 
+ 
+ -------------------
+ commands
+ component : ng g c name
