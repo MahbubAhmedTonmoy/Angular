@@ -1,0 +1,27 @@
+<p>auth works!</p>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="email" formControlName="email" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="password" formControlName="password" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary">{{isLoginMode ? 'Login':'Sign Up'}}</button>
+            </div>
+        </form>
+    </div>
+</div>
