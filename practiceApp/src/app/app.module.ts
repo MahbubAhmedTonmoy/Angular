@@ -13,6 +13,10 @@ import { StudentComponent } from './student/student.component';
 import { SubjectComponent } from './subject/subject.component';
 import { ResultComponent } from './result/result.component';
 import { TeacherComponent } from './teacher/teacher.component';
+import { SubjectCreateComponent } from './subject/subject-create/subject-create.component';
+import { AuthInterceptorService } from './auth/auth.interceptor.service';
+import { SubjectListComponent } from './subject/subject-list/subject-list.component';
+import { SingleSubjectComponent } from './subject/single-subject/single-subject.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,10 @@ import { TeacherComponent } from './teacher/teacher.component';
     StudentComponent,
     SubjectComponent,
     ResultComponent,
-    TeacherComponent
+    TeacherComponent,
+    SubjectCreateComponent,
+    SubjectListComponent,
+    SingleSubjectComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +39,12 @@ import { TeacherComponent } from './teacher/teacher.component';
     AppRoutingModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi:true
+    }
   ],
   bootstrap: [AppComponent]
 })

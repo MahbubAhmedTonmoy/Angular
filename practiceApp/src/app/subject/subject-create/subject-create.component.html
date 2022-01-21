@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <form [formGroup]="subjectForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>Subject Title</label>
+                        <input type="subject" id="subject" formControlName="subject" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>Level</label>
+                        <input type="level" id="level" formControlName="level" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary">{{isAdd ? 'Add':'Update'}}</button>
+            </div>
+        </form>
+    </div>
+</div>
