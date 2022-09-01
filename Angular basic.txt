@@ -7,6 +7,16 @@
 
 component: basic building block, control html 
 
+----data binding----------------------------------------------------------------------------
+--TS to html
+	- string interpolation {{data}}
+	- property(html property) Binding  [property] = "data"
+--html to TS
+-Event Binging (event)="expression" / (event)="expression($event)"
+
+- two way binding [(ngModel)]="data"
+
+--------------------------------------------------------------------------------------------
 module: some component bundel, building a package
  @NgModule({
   declaration;[component],
@@ -48,15 +58,7 @@ view encapsulation :
 	encapsulation: ViewEancapsulation.Native
  })
 ------------------------
-data binding:
-    ts -> html:
-	string Interpolation: {{data}}
-	property Binding: ([property]="data")
-	html -> ts
-	Event Binding : ((event)= "expression($event)")
-	
-	2 way binding: ([(ngModel)] = "data")
-	
+
 	pass value by using local reference : <input type="" class="" #name>  function(name)
 	@ViewChild('') name : ElementRef  // this.name.nativeElement.value  // <#name>
 	
